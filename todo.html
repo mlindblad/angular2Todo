@@ -1,1 +1,38 @@
-<h1>Hello world</h1>
+<style>@import "css/base.css";</style>
+
+<section id="todoApp">
+<header>
+	<h1>Todos</h1>
+	<input type="text"
+		#newtodo
+		placeholder="What do you need to do"
+		autofocus
+		(keyup) = "addTodoItem($event, newtodo)"
+		>
+	
+</header>
+<section>
+	<ul id="todo-list">
+		<li *ng-for="#todo of listTodos()">
+			
+			<div class="view" [class.hidden]="(todoEdit == todo)">
+
+          		<input class="toggle" type="checkbox"
+				(click)="toogleTodoItem(todo)"
+				[checked]="todo.completed"		  
+				>
+
+          		<label (dblclick)="editTodo(todo)">{{todo.title}}</label>
+          		<button class="destroy" (click)="deleteTodo(todo)"></button>
+
+				  <label>{{todo.name}}</label>
+
+        	</div>
+			
+		</li>
+	</ul>
+</section>
+
+
+</section>
+
